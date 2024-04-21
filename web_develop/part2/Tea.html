@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<script type="text/javascript" src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/china.js"></script>
+<script type="text/javascript" src="js/map2.js"></script>
+<script type="text/javascript" src="js/js2.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="head clearfix">
+	<h1 class="pulll_center">各省数据</h1>
+		<div class="menu menu2 pulll_left">
+
+		</div>
+		<div class="time" id="showTime"></div>
+		
+	</div>
+	<div class="mainbox">
+        <ul class="clearfix nav1">
+            <li style="width: 35%">
+                <div class="box">
+
+                    <div class="tit">茶叶产量数据(单位:t)</div>
+                    <div class="boxnav" style="height: 800px;">
+                        <div style="height: 800px" id="echart2"></div>
+                    </div>
+					<select style="position: absolute; top: 15px; right: 20px;" id="teaType">
+						<option value="AllTea">茶叶总量</option>
+						<option value="GreenTea">绿茶产量</option>
+						<option value="OolongTea">乌龙茶产量</option>
+						<option value="BlackTea">红茶产量</option>
+						<option value="DarkTea">黑茶产量</option>
+						<option value="YellowTea">黄茶产量</option>
+						<option value="WhiteTea">白茶产量</option>
+						<option value="OtherTea">其他茶产量</option>
+					</select>
+                </div>
+            </li>
+            <li style="width: 65%">
+                <div class="box">
+                    <div class="boxnav mapc" style="height: 800px; position: relative">
+                        <div class="map" id="map"></div>
+                        <div style="position: absolute; top: 20px; right: 20px;">
+                            <select id="dataSelector" onchange="changeData()">
+                                <option value="GreenTea">绿茶</option>
+                                <option value="WhiteTea">白茶</option>
+                                <option value="YellowTea">黄茶</option>
+                                <option value="BlackTea">红茶</option>
+                                <option value="DarkTea">黑茶</option>
+                                <option value="Oolong">乌龙茶</option>
+                                <option value="AllTea">茶叶总量</option>
+                                <option value="OtherTea">其余茶</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    
+		</li>
+		</ul>
+		
+		
+		
+		<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+
+</script>
+	</div>
+</body>
+</html>

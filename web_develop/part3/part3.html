@@ -1,0 +1,170 @@
+﻿<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+
+  <title>茶贸经纬：中国茶叶市场与贸易</title>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="loading">
+    <div class="loadbox"> <img src="images/loading.gif"> 页面加载中... </div>
+  </div>
+  <div class="head">
+    <h1><a>茶贸经纬：中国茶叶市场与贸易</a></h1>
+    <div class="time" id="showTime">2019/12/05 16:16:54</div>
+    <script>
+      var t = null;
+      t = setTimeout(time, 1000);
+      function time() {
+        clearTimeout(t);
+        dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours();
+        var m = dt.getMinutes();
+        var s = dt.getSeconds();
+        var t = null;
+        document.getElementById("showTime").innerHTML = y + "/" + Appendzero(mt) + "/" + Appendzero(day) + " " + Appendzero(h) + ":" + Appendzero(m) + ":" + Appendzero(s) + "";
+        function Appendzero(obj) {
+          if (obj < 10) return "0" + "" + obj;
+          else return obj;
+        }
+        t = setTimeout(time, 1000);
+      }
+
+    </script>
+
+  </div>
+  <div class="mainbox">
+    <ul class="clearfix">
+      <li>
+
+        <div class="boxall" style="height: calc(120% - .15rem)">
+          <div class="alltitle">2022年度全国干毛茶产值(单位:万元)</div>
+          <div class=" boxnav " id="echarts4">
+          </div>
+        </div>
+        <div class="boxall" style="height: calc(0% - .15rem)">
+          <div class="boxnav" id="echarts3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="boxall" style="height: calc(25% - .15rem)">
+          <ul class="row h100 clearfix">
+            <li class="col-6">
+              <div class="sqzs h100">
+                <p>2022出口额</p>
+                <h1><span>20.8</span> 亿美元 </h1>
+              </div>
+            </li>
+            <li class="col-6">
+              <ul class="row h100 clearfix">
+                <li class="col-4">
+                  <div class="tit01">绿茶出口占比</div>
+                  <div class="piebox" id="pe01"></div>
+                </li>
+                <li class="col-4">
+                  <div class="tit01">红茶出口占比</div>
+                  <div class="piebox" id="pe02"></div>
+                </li>
+                <li class="col-4">
+                  <div class="tit01">其余茶出口占比</div>
+                  <div class="piebox" id="pe03"></div>
+                </li>
+              </ul>
+
+            </li>
+          </ul>
+        </div>
+        <div class="boxall" style="height: calc(52.333% - .15rem)">
+          <div class="alltitle"><a href="Tea.html">近7年茶叶出口情况</a></div>
+          <div class="boxnav" id="echarts1"></div>
+        </div>
+        <div class="boxall" style="height: calc(44% - .15rem)">
+          <div class="alltitle">近7年茶叶进口情况</div>
+          <div class="boxnav" id="echarts2"></div>
+        </div>
+
+      </li>
+      <li>
+
+        <div class="boxall" style="height: calc(33.333% - .15rem)">
+
+          <div class="alltitle">近7年茶叶内销情况</div>
+          <div class="boxnav" id="echarts5"></div>
+
+        </div>
+        <div class="boxall" style="height: calc(44% - .15rem)">
+          <div class="alltitle">2022年六大茶类内销情况
+          </div>
+          <div class="boxnav" id="">
+            <table border="0" cellspacing="0">
+              <tr>
+                <th>茶类</th>
+                <th>内销量(万吨)</th>
+                <th>内销额(亿元)</th>
+
+              </tr>
+              <tr>
+                <td>绿茶</td>
+                <td>131.10</td>
+                <td>2110.45</td>
+
+              </tr>
+              <tr>
+                <td>红茶</td>
+                <td>38.13</td>
+                <td>564.21</td>
+
+              </tr>
+              <tr>
+                <td>黑茶</td>
+                <td>36.44</td>
+                <td>321.35</td>
+
+              </tr>
+              <tr>
+                <td>乌龙茶</td>
+                <td>24.84</td>
+                <td>284.56</td>
+
+
+              </tr>
+              <tr>
+                <td>白茶</td>
+                <td>8.13</td>
+                <td>100.53</td>
+
+
+              </tr>
+              <tr>
+                <td>黄茶</td>
+                <td>1.12</td>
+                <td>14.17</td>
+
+
+              </tr>
+            </table>
+
+          </div>
+
+        </div>
+        <div class="boxall" style="height: calc(43.333% - .15rem)">
+          <div class="alltitle">2022年六大茶类出口量占比(单位:万吨)</div>
+          <div class="boxnav" id="echarts6" style="height:calc(100% - .3rem);"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="js/echarts.min.js"></script>
+  <script language="JavaScript" src="js/js.js"></script>
+</body>
+
+</html>

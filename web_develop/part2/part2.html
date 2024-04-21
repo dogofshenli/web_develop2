@@ -1,0 +1,150 @@
+﻿<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>茶之华章：中国茶产业纵览</title>
+	<script type="text/javascript" src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/china.js"></script>
+	<script type="text/javascript" src="js/map.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
+	<script type="text/javascript" src="js/Bubble.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="head clearfix">
+		<h1 class="pulll_center">茶之华章：中国茶产业纵览</h1>
+		<div class="menu menu2 pulll_left">
+
+		</div>
+		<div class="time" id="showTime"></div>
+
+	</div>
+	<div class="mainbox">
+
+		<ul class="clearfix nav1">
+			<li style="width: 22%">
+				<div class="box">
+					<div class="tit">六大茶类</div>
+					<div class="boxnav" style="height: 330px;">
+						<div class="tagcloud">
+							<a class="b02 co01"
+								href="https://baike.baidu.com/item/%E7%BB%BF%E8%8C%B6/13497?fr=ge_ala">绿茶</a>
+							<a class="b01 co02" href="https://baike.baidu.com/item/%E7%99%BD%E8%8C%B6/522348">白茶</a>
+							<a class="b03 co03"
+								href="https://baike.baidu.com/item/%E9%BB%84%E8%8C%B6/522458?fromModule=disambiguation">黄茶</a>
+							<a class="b04 co04" href="https://baike.baidu.com/item/%E7%BA%A2%E8%8C%B6/185424">红茶</a>
+							<a class="b04 co05" href="https://baike.baidu.com/item/%E9%BB%91%E8%8C%B6/522584">黑茶</a>
+							<a class="b01 co06"
+								href="https://baike.baidu.com/item/%E4%B9%8C%E9%BE%99%E8%8C%B6/1072">乌龙茶</a>
+						</div>
+						<script type="text/javascript">
+							tagcloud({
+								selector: ".tagcloud",  //元素选择器
+								fontsize: 6,       //基本字体大小, 单位px
+								radius: 40,         //滚动半径, 单位px 页面宽度和高度的五分之一
+								mspeed: "slow",   //滚动最大速度, 取值: slow, normal(默认), fast
+								ispeed: "slow",   //滚动初速度, 取值: slow, normal(默认), fast
+								direction: 0,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+								keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+							});
+						</script>
+					</div>
+				</div>
+				<div class="box">
+					<div class="tit">2022年各省茶园面积(单位:万亩)</div>
+					<div class="boxnav" style="height:100% ;">
+						<div style="height: 406px" id="echart2"></div>
+
+					</div>
+				</div>
+			</li>
+			<li style="width: 50%">
+
+				<div class="box">
+					<div class="boxnav mapc" style="height: 500px; position: relative">
+						<div class="map" id="map"></div>
+						<div style="position: absolute; top: 20px; right: 20px;">
+							<select id="dataSelector" onchange="changeData()">
+								<option value="GreenTea">绿茶</option>
+								<option value="WhiteTea">白茶</option>
+								<option value="YellowTea">黄茶</option>
+								<option value="BlackTea">红茶</option>
+								<option value="DarkTea">黑茶</option>
+								<option value="Oolong">乌龙茶</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="tit">近4年茶叶产量以及六大茶类的产量(单位:万吨)</div>
+					<div class="boxnav" style="height: 300px;" id="echart3">
+
+
+					</div>
+				</div>
+			</li>
+			<li style="width: 28%">
+				<div class="box">
+					<div class="tit">近4年实有茶园面积与采摘茶园面积(单位:千公顷)</div>
+					<div class="boxnav" id="echart4" style="height: 200px;">
+
+					</div>
+				</div>
+				<div class="box">
+					<div class="tit">近4年六大茶类产量占比</div>
+
+					<div style="position: absolute; top: 20px; right: 20px;">
+						<label for="year-select">选择年份：</label>
+						<select id="year-select">
+							<option value="2022">2022</option>
+							<option value="2021">2021</option>
+							<option value="2020">2020</option>
+							<option value="2019">2019</option>
+						</select>
+					</div>
+					<div class="boxnav" style="height: 400px;" id="echart5">
+
+					</div>
+				</div>
+				<div class="box">
+					<div class="tit">分省数据</div>
+					<div class="boxnav" style="height: 100px;">
+						<div style="text-align: center; margin-top: 40px;">
+							<a href="Tea.html" target="_blank" rel="noopener noreferrer">
+								点击此处查看</a>
+
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+
+
+		<script>
+			var t = null;
+			t = setTimeout(time, 1000);
+			function time() {
+				clearTimeout(t);//清除定时器
+				dt = new Date();
+				var y = dt.getFullYear();
+				var mt = dt.getMonth() + 1;
+				var day = dt.getDate();
+				var h = dt.getHours();//获取时
+				var m = dt.getMinutes();//获取分
+				var s = dt.getSeconds();//获取秒
+				document.getElementById("showTime").innerHTML = y + "/" + mt + "/" + day + " " + h + ":" + m + ":" + s + "";
+				t = setTimeout(time, 1000); //设定定时器，循环运行     
+			}
+
+		</script>
+	</div>
+</body>
+
+</html>
